@@ -13,4 +13,7 @@ class Post(models.Model):
     status = models.BooleanField(default=False)
     published_date = models.DateTimeField(null=True)
 
+    def __str__(self):
+        return "{} - {} ".format(self.title,self.id)
+
 # Create your models here.
