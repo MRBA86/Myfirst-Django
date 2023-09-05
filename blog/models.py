@@ -13,6 +13,11 @@ class Post(models.Model):
     status = models.BooleanField(default=False)
     published_date = models.DateTimeField(null=True)
 
+    class Meta:
+        ordering = ['-created_date']
+        verbose_name = 'پست'
+        verbose_name_plural = 'پست ها'
+
     def __str__(self):
         return "{} - {} ".format(self.title,self.id)
 
