@@ -18,7 +18,12 @@ def blog_single(request, pid):
              'post_pre':post_pre}
     post.counted_views = post.counted_views + 1
     post.save()
-
     return render(request, 'blog/blog-single.html', context)
+
+def blog_category(request,cat_name):
+    posts =Post.objects.filter(published_date__lte= tz.now() , status = 1)
+    posts = posts.filter(category__name = cat_name)
+    context = {'posts':posts}
+    return render(request,'blog/blog-home.html',context)
 
 # Create your views here.
