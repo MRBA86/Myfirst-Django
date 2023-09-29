@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load website_tags %}
 {% block content %}
 
 <!-- start banner Area -->
@@ -179,6 +180,6 @@
 <!-- End home-about Area -->
 
 
-{% include 'website/website_latest_posts.html' %}
+{% website_latestposts %}
 
 {% endblock %}
