@@ -85,6 +85,7 @@
     </header><!-- #header -->
     {% block content %}
     {% endblock %}
+    {% include 'messages.html' %}
     <!-- start footer Area -->
     <footer class="footer-area section-gap">
         <div class="container">
@@ -131,6 +132,7 @@
                             output.
                         </p>
                         <div>
+                            
                             <form 
                                 action="{% url 'website:newsletter' %}"
                                 method="post" class="subscription relative">
