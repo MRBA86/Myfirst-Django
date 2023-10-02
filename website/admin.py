@@ -1,5 +1,5 @@
 from django.contrib import admin
-from website.models import Contact
+from website.models import Contact , Newsletter
 
 class ContactAdmin(admin.ModelAdmin):
     ordering = ['created_date']
@@ -9,5 +9,6 @@ class ContactAdmin(admin.ModelAdmin):
     empty_value_display = 'خالی'
 
 admin.site.register(Contact,ContactAdmin)
+admin.site.register(Newsletter)
 
 # Register your models here.
