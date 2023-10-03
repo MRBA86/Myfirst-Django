@@ -4,3 +4,8 @@ pytz==2023.3
 sqlparse==0.4.4
 tzdata==2023.3
 pillow
+django-extensions
+django-robots
+django-debug-toolbar
+django-taggit
+django-summernote
