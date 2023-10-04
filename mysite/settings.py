@@ -43,11 +43,11 @@ INSTALLED_APPS = [
     'django.contrib.sitemaps',
     'robots',
     'taggit',
-    'django_summernote',
-    
+    'captcha',
     'website.apps.WebsiteConfig',
     'blog.apps.BlogConfig',
     'debug_toolbar',
+    'django_summernote',
 ]
 
 #site framework
@@ -56,6 +56,11 @@ SITE_ID = 2
 #robots
 ROBOTS_USE_HOST = True
 ROBOTS_USE_SITEMAP = True
+
+# summernote Option
+SUMMERNOTE_THEME='bs4'# Show summernote with Bootstrap4
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
 
 
 MIDDLEWARE = [
