@@ -1,7 +1,9 @@
 from django.shortcuts import render,get_object_or_404
-from blog.models import Post
+from blog.models import Post , Comment
+from blog.forms import CommentForm
 from django.utils import timezone as tz
 from django.core.paginator import Paginator,PageNotAnInteger,EmptyPage
+from django.contrib import messages
 
 
 def blog_view(request,**kwargs):
@@ -24,15 +26,27 @@ def blog_view(request,**kwargs):
     return render(request,'blog/blog-home.html',context)
 
 def blog_single(request, pid):
+    if request.method == 'POST':
+        form =CommentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Your Comment Send Successfully.")
+        else:
+            messages.ERROR(request, "Your Comment didn't sent.")
     posts =Post.objects.filter(published_date__lte = tz.now() , status = 1)
     post = get_object_or_404(posts, pk=pid)
     post_next = Post.objects.filter(published_date__lte = tz.now() , status = 1, id__gt = pid).order_by('id').first()
     post_pre = Post.objects.filter(published_date__lte = tz.now() , status = 1, id__lt = pid).order_by('-id').first()
+    comments =Comment.objects.filter(post=post.id,approved=True)
+    form = CommentForm()
     context={'post':post,
-             'post_next': post_next,
-             'post_pre':post_pre}
+            'post_next': post_next,
+             'post_pre':post_pre,
+            'comments':comments,
+            'form':form}
     post.counted_views = post.counted_views + 1
     post.save()
+
     return render(request, 'blog/blog-single.html', context)
 
 def blog_category(request,cat_name):

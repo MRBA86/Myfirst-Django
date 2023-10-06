@@ -9,7 +9,7 @@ class NameForm (forms.Form):
     subject = forms.CharField(max_length=255)
     message = forms.CharField(widget=forms.Textarea)
 
-class ContactForm(forms.ModelForm):
+class ContactForm(ModelForm):
     captcha = CaptchaField()
     class Meta :
         model = Contact
