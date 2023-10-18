@@ -49,7 +49,11 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'debug_toolbar',
     'django_summernote',
+    'accounts.apps.AccountsConfig',
 ]
+
+#Auth users settings
+#AUTH_USER_MODEL = 'accounts.CustomUser'
 
 #site framework
 SITE_ID = 2
