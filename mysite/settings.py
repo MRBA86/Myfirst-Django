@@ -50,7 +50,6 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'django_summernote',
     'accounts.apps.AccountsConfig',
-    'crispy_forms',
 ]
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
