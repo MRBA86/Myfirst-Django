@@ -22,18 +22,27 @@
             <div class="row justify-content-center">
                 <div class="col-md-6 col-lg-4">
                     <div class="login-wrap p-0">
+                        {% include 'messages.html' %}
                         <h3 class="mb-4 text-center">Create an account?</h3>
                         <form action="{% url 'accounts:signup' %}" method="post" class="signin-form">
                             {% csrf_token %}
-                            <div class="form-group">
-                                {{form.as_p}}
-                                <!--                           
+                            <div class="form-group justify-content-center" >
+                                <table>
+                                {{form.as_table}}
+                                    <tr>
+                                        <td></td>
+                                    </tr>
+
+
+                                </table>
+                                <button type="submit" class="form-control btn btn-primary submit px-3">Sign Up</button>
+                                <!--                 
                                 <input type="text" name="username" class="form-control" placeholder="Username" required><br>
+                                <input type="email" name="email" class="form-control" placeholder="Email address"  required
+                                pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" ><br>
                                 <input name="password1" type="password" class="form-control" placeholder="Password" required><br>
                                 <input name="password2" type="password" class="form-control" placeholder="Confirm Password" required><br>
-                                -->
-                                <button type="submit" class="form-control btn btn-primary submit px-3">Sign Up</button>
-                                
+                                     -->                                 
                             </div>
                             <div class="form-group d-md-flex">
 <!-- Section remember me-->
@@ -50,7 +59,6 @@
                                 </div>
                             </div>
                         </form>
-                        {% include 'messages.html' %}
                         </div>
                     </div>
                 </div>
